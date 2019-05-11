@@ -8,7 +8,7 @@
 #include <numeric>
 #include <functional>
 
-#include "registry.hpp"
+#include <entt/entity/registry.hpp>
 
 class EnttBenchmark {
     public:
@@ -30,7 +30,7 @@ class EnttBenchmark {
         std::string stringy;
     };
 
-    using EntityManager = entt::DefaultRegistry<PositionComponent, DirectionComponent, ComflabulationComponent>;
+    using EntityManager = entt::DefaultRegistry;
 
     //template <typename C>
     //using Component = C;

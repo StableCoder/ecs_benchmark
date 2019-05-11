@@ -6,7 +6,7 @@
 
 #include "benchpress/benchpress.hpp"
 
-#include "registry.hpp"
+#include <entt/entity/registry.hpp>
 
 #include "EnttBenchmark.h"
 

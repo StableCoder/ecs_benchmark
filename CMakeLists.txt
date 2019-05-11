@@ -209,6 +209,7 @@ target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE ${LIB_PATH}/entt/src)
 target_link_libraries (${PROJECT_NAME} PRIVATE entityx)
 target_link_libraries (${PROJECT_NAME} PRIVATE anax)
 target_link_libraries (${PROJECT_NAME} PRIVATE ArtemisCpp)
+target_link_libraries (${PROJECT_NAME} PRIVATE EnTT)
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${INCLUDE_PATH})
 target_include_directories(${PROJECT_NAME} PRIVATE ${SRC_PATH})

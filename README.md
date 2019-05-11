@@ -14,7 +14,7 @@ Simple Benchmark of common Entity-Component-Systems:
 > While I was playing with it, I found that I didn't like that much the way it manages its memory. Moreover, I was pretty sure that one > could achieve better performance with a slightly modified pool under the hood.
 > That's also the reason for which the interface is quite similar to the one of entityx, so that EnTT can be used as a drop-in > replacement for it with a minimal effort.
 
-Version: 1.1.0 (September 2017)
+Version: 2.7.3 (September 2018)
 
 
 ### EntityX by @alecthomas
