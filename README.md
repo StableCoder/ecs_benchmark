@@ -125,9 +125,9 @@ _EntityX2 has a Column Storage Capacity (`ColumnStorage<Components, INITIAL_CAPA
 
 ### Environment
 
- - OS: Antergos Linux (4.13.3-1-ARCH) 64-Bit
- - CPU: 4x Intel® Core™ i5 CPU 760 @ 2.80GHz
- - RAM: 8 GB
+ - OS: Arch Linux (5.0.13-arch1-1-ARCH) 64-Bit
+ - CPU: 16C/32T AMD Ryzen Threadripper 1950X @ 3.8GHz
+ - RAM: 32 GB
 
 ### Results
 
@@ -135,44 +135,44 @@ _EntityX2 has a Column Storage Capacity (`ColumnStorage<Components, INITIAL_CAPA
 
 | Benchmark                                             | EntityX (master) | EntityX (experimental/compile_time) | EnTT (master) |
 |:------------------------------------------------------|-----------------:|------------------------------------:|--------------:|
-| Creating 10M entities                                 |            0.25s |                               0.16s |     **0.07s** |
-| Destroying 10M entities                               |            0.47s |                               0.21s |     **0.14s** |
-| Iterating over 10M entities, unpacking one component  |            0.24s |                               0.02s |     **0.02s** |
-| Iterating over 10M entities, unpacking two components |            0.40s |                               0.08s |     **0.04s** |
+| Creating 10M entities                                 |            0.17s |                               0.14s |     **0.07s** |
+| Destroying 10M entities                               |            0.27s |                               0.14s |     **0.05s** |
+| Iterating over 10M entities, unpacking one component  |            0.06s |                          **0.006s** |         0.02s |
+| Iterating over 10M entities, unpacking two components |            0.14s |                               -.--s |     **0.05s** |
 
 _I didn't benchmark Anax and Artemis, because it causes some `bad_alloc`-Errors._
 
 
 #### Systems update
 
-![benchmark results systems update 1](https://raw.githubusercontent.com/abeimler/ecs_benchmark/master/doc/systems-update-result.png "Benchmark Results: Systems update #1")
+![benchmark results systems update 1](./doc/systems-update-result.png "Benchmark Results: Systems update #1")
 
-![benchmark results systems update 2](https://raw.githubusercontent.com/abeimler/ecs_benchmark/master/doc/systems-update-result-2.png "Benchmark Results: Systems update #2")
+![benchmark results systems update 2](./doc/systems-update-result-2.png "Benchmark Results: Systems update #2")
 
 _(lower is better :)_
 
 | Benchmark                          | Artemis |  Anax | EntityX (master) | EntityX (experimental/compile_time) | EnTT (master) |
 |:-----------------------------------|--------:|------:|-----------------:|------------------------------------:|--------------:|
-| Update  1M entities with 2 Systems | 244.13s | 0.23s |            0.10s |                               0.03s |     **0.01s** |
-| Update  2M entities with 2 Systems |     N/A | 1.29s |            0.22s |                               0.07s |     **0.03s** |
-| Update  5M entities with 2 Systems |     N/A |   N/A |            0.59s |                               0.18s |     **0.07s** |
-| Update 10M entities with 2 Systems |     N/A |   N/A |            1.84s |                               0.38s |     **0.15s** |
-| Update 20M entities with 2 Systems |     N/A |   N/A |            3.92s |                               1.22s |     **0.31s** |
+| Update  1M entities with 2 Systems |  83.73s | 0.11s |            0.04s |                               0.01s |         0.01s |
+| Update  2M entities with 2 Systems |     N/A | 0.25s |            0.08s |                               0.03s |     **0.02s** |
+| Update  5M entities with 2 Systems |     N/A |   N/A |            0.25s |                               0.08s |     **0.06s** |
+| Update 10M entities with 2 Systems |     N/A |   N/A |            0.53s |                               0.17s |     **0.12s** |
+| Update 20M entities with 2 Systems |     N/A |   N/A |            1.99s |                               0.36s |     **0.24s** |
 
 
 #### Eventbus
 
-![benchmark results eventbus](https://raw.githubusercontent.com/abeimler/ecs_benchmark/master/doc/eventbus-result.png "Benchmark Results: Eventbus")
+![benchmark results eventbus](./doc/eventbus-result.png "Benchmark Results: Eventbus")
 
 Some bonus with EntityX (1.x) and [eventpp](https://github.com/skypjack/eventpp).
 
 | Benchmark                                             | EntityX (master) |   Eventpp |
 |:------------------------------------------------------|-----------------:|----------:|
-| publish EventA and EventB  20k times                  |              1ms |       1ms |
-| publish EventA and EventB  50k times                  |              3ms |       3ms |
-| publish EventA and EventB 100k times                  |          **6ms** |       7ms |
-| publish EventA and EventB 200k times                  |         **12ms** |      14ms |
-| publish EventA and EventB 500k times                  |         **32ms** |      51ms |
+| publish EventA and EventB  20k times                  |             <1ms |      <1ms |
+| publish EventA and EventB  50k times                  |              1ms |       1ms |
+| publish EventA and EventB 100k times                  |              3ms |       3ms |
+| publish EventA and EventB 200k times                  |              7ms |   **6ms** |
+| publish EventA and EventB 500k times                  |             17ms |  **16ms** |
 
 _Listen to EventA EventB and EventC_
 
